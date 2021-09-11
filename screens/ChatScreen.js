@@ -6,8 +6,7 @@ import useStatus from '../hooks/useStatus';
 import useChat from '../hooks/useChat';
 import UserHeader from '../components/UserHeader';
 import ChatList from '../components/ChatList';
-const socket = io('http://192.168.56.1:3000/')
-// const socket = io('https://chatapp-oscarparedez.herokuapp.com/');
+const socket = io('https://chatapp-oscarparedez.herokuapp.com/');
 
 const ChatScreen = props => {
   const userProps = props.route.params
@@ -17,7 +16,7 @@ const ChatScreen = props => {
     userProps.randomUser
   )
   const messages = useChat(socket)
-  
+
   const [message, setMessage] = useState('');
 
   const submitMessage = () => {
