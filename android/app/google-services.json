@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "93848048470",
+    "project_id": "chatapp-86cf5",
+    "storage_bucket": "chatapp-86cf5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93848048470:android:42544250b68044af34fcf7",
+        "android_client_info": {
+          "package_name": "com.reactnativefirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93848048470-cjrkehchbc84cc7qqa6m7uqh3k4vqrv8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjqpEMMIPussEt0oU-kJS30BkhVq6nB5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93848048470-cjrkehchbc84cc7qqa6m7uqh3k4vqrv8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
