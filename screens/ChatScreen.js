@@ -6,8 +6,8 @@ import useStatus from '../hooks/useStatus';
 import useChat from '../hooks/useChat';
 import UserHeader from '../components/UserHeader';
 import ChatList from '../components/ChatList';
-// const socket = io('http://192.168.56.1:3000/')
-const socket = io('https://chatapp-oscarparedez.herokuapp.com/');
+const socket = io('http://192.168.56.1:3000/')
+// const socket = io('https://chatapp-oscarparedez.herokuapp.com/');
 
 const ChatScreen = props => {
   const userProps = props.route.params
@@ -15,26 +15,13 @@ const ChatScreen = props => {
     userProps.user,
     true, 
     userProps.randomUser
-  );
-
-  // let {messages} = useChat()
-  const [chat, setChat] = useState([]);
+  )
+  const messages = useChat(socket)
+  
   const [message, setMessage] = useState('');
 
-    useEffect(() => {
-      socket.on('chat message', msgs => {
-          setChat(msgs);
-        });
-    }, [])
-
   const submitMessage = () => {
-    let messageInfo = {
-      id: Date.now(), 
-      message: message,
-      user: username,
-      time:
-        new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
-    };
+    let messageInfo = {id: Date.now(), message: message,user: username,time:new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),};
     socket.emit('chat message', messageInfo);
     setMessage('');
   };
@@ -42,7 +29,7 @@ const ChatScreen = props => {
   return (
     <SafeAreaView style={styles.container}>
       <UserHeader userData={userProps} />
-      <ChatList chatList={chat} userData={userProps} />
+      <ChatList chatList={messages} userData={userProps} />
       <View style={styles.bottomContainer}>
         <TextInput
           onChangeText={val => setMessage(val)}
